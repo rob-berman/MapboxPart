@@ -1,0 +1,7 @@
+{
+  "CordovaPluginVariables": {
+    "cordova-plugin-mapbox": {
+      "ACCESS_TOKEN": "sk.eyJ1IjoiZWRkeXZlcmJydWdnZW4iLCJhIjoia1JpRW82NCJ9.OgnvpsKzB3GJhzyofQNUBw"
+    }
+  }
+}
