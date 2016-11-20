@@ -17,8 +17,8 @@
                       bottom: navigator.userAgent.indexOf("Android") == -1 ? 50 : 0 // default 0
                     },
                     center: { // optional, without a default
-                      lat: 52.3702160,
-                      lng: 4.8951680
+                      lat: 42.730857,
+                      lng: -73.682494
                     },
                     zoomLevel: 12, // 0 (the entire world) to 20, default 10
                     showUserLocation: true, // default false
@@ -31,17 +31,18 @@
                     disablePitch: false, // default false
                     markers: [
                       {
-                        lat: 52.3732160,
-                        lng: 4.8941680,
+                        lat: 42.730857,
+                        lng: -73.682494,
                         title: 'Nice location',
-                        subtitle: 'Really really nice location'
+                        subtitle: 'Hello World!'
                       }
                     ]
                   },
                   function() {
                     // let's add an click handler to the marker callouts
                     Mapbox.addMarkerCallback(function (selectedMarker) {
-                      alert("Marker selected: " + JSON.stringify(selectedMarker));
+                      //alert("Marker selected: " + JSON.stringify(selectedMarker));
+                      alert("Hello World!");
                     });
                   },
                   this.onError
@@ -63,14 +64,14 @@
               	Mapbox.addMarkers(
 	                [
                     {
-                      'lat': 52.3602160,
-                      'lng': 4.8891680,
+                      'lat': 42.730857,
+                      'lng': -73.682494,
                       'title': 'One-line title here', // no popup unless set
                       'subtitle': 'This text can span multiple lines on Android only.'
                     },
                     {
-                      'lat': 52.3702160,
-                      'lng': 4.8911680,
+                      'lat': 42.730857,
+                      'lng': -73.682494,
                       'title': 'Nu subtitle for this one' // iOS: no popup unless set, Android: an empty popup -- so please add something
                     }
                   ],
@@ -80,37 +81,13 @@
             }
         },
       
-        addPolygon: function () {
-            if (!this.checkSimulator()) {
-              	Mapbox.addPolygon(
-                  {
-                    points: [
-                      {
-                        'lat': 52.3832160,
-                        'lng': 4.8991680
-                      },
-                      {
-                        'lat': 52.3632160,
-                        'lng': 4.9011680
-                      },
-                      {
-                        'lat': 52.3932160,
-                        'lng': 4.8911680
-                      }
-                    ]
-                  },
-                  this.onSuccess,
-                  this.onError
-                );
-            }
-        },
       
         setCenter: function () {
             if (!this.checkSimulator()) {
               	Mapbox.setCenter(
                   {
-                    lat: 52.3602160,
-                    lng: 4.8891680,
+                    lat: 42.730857,
+                    lng: -73.682494,
                     animated: true
                   },
                   this.onSuccess,
@@ -127,12 +104,12 @@
             }
         },
 
-        setZoomLevel: function () {
+        zoomOut: function () {
             if (!this.checkSimulator()) {
               	Mapbox.setZoomLevel(
                   {
                     level: 10,
-							      animated: true
+					animated: true
                   },
                   this.onSuccess,
                   this.onError
@@ -140,11 +117,16 @@
             }
         },
 
-        getZoomLevel: function () {
+        zoomIn: function () {
             if (!this.checkSimulator()) {
-              	Mapbox.getZoomLevel(
-                  this.onSuccessWithAlert
-                );
+              	Mapbox.setZoomLevel(
+                {
+                  level: 12,
+                  animated: true
+                }
+            );
+                this.onSuccess,
+                this.onError
             }
         },
 
